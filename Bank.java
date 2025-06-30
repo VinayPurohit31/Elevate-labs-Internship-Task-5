@@ -1,25 +1,36 @@
+
+import java.util.HashMap;
+
 public class Bank {
-    public void createAccount(){
 
-    }
-    public void updateAccount(){
+    HashMap<String, Account> hashMap = new HashMap<>();
 
-    }
-    public void deposicMoney(){
-
-    }
-    public void withdrowMoney(){
-
-    }
-    public void displayAccount(){
-
-    }
-    public void deleteAccount(){
-
-    }
-    public void generateStatement(){
+    public void createAccount() {
 
     }
 
+    public void updateAccount() {
+
+    }
+
+    public void depositMoney() {
+
+    }
+
+    public void withdrawMoney() {
+
+    }
+
+    public void displayAccount() {
+
+    }
+
+    public void deleteAccount() {
+
+    }
+
+    public void generateStatement() {
+
+    }
 
 }
