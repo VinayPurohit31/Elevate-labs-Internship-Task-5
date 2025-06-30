@@ -44,7 +44,7 @@ class LogicHandling {
 
                     switch (selectCase) {
                         case 1 ->
-                            b.createAccount();
+                            b.createAccount(sc);
                         case 2 ->
                             b.depositMoney();
                         case 3 ->
