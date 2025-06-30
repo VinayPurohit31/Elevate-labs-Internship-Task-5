@@ -28,7 +28,7 @@ public class Bank {
         account = new Account(userId, password, name, phoneNumber, email, address, accountNumber, accountType);
         accountMapByAccNumber.put(accountNumber, account);
         loginMapByUserId.put(userId, account);
-
+        System.out.println("----------------------------------------");
     }
 
     public Account login(Scanner sc) {
@@ -47,11 +47,13 @@ public class Bank {
             return null;
         }
         System.out.println(" Login successful! Welcome " + account.getName());
+        System.out.println("----------------------------------------");
         return account;
 
     }
 
     public void updateAccount(Account account1, Scanner sc) {
+        
 
     }
 
@@ -60,11 +62,12 @@ public class Bank {
         double deposit = sc.nextDouble();
         if (deposit > 0 && deposit <= 1000000) {
             account1.setBalance(account1.getBalance() + deposit);
+            account1.getTransactionHistory().add("Deposited ₹" + deposit);
             System.out.println("Deposit successfully ");
         } else {
             System.out.println("the amount should be greater then 0 and less then 1000000 ");
         }
-
+        System.out.println("----------------------------------------");
     }
 
     public void withdrawMoney(Account account1, Scanner sc) {
@@ -73,10 +76,12 @@ public class Bank {
         sc.nextLine();
         if (withdraw > 0 && withdraw <= account1.getBalance()) {
             account1.setBalance(account1.getBalance() - withdraw);
+            account1.getTransactionHistory().add("Withdrew ₹" + withdraw);
             System.out.println("Withdrawal successful! Remaining Balance: ₹" + account1.getBalance());
         } else {
             System.out.println("Invalid amount. It must be greater than 0 and less than or equal to your balance.");
         }
+        System.out.println("----------------------------------------");
     }
 
     public void displayAccount(Account account1) {
@@ -89,14 +94,33 @@ public class Bank {
         System.out.println("Account Number: " + account1.getAccountNumber());
         System.out.println("Account Type: " + account1.getAccountType());
         System.out.println("Current Balance: ₹" + account1.getBalance());
+        System.out.println("----------------------------------------");
     }
 
     public void deleteAccount(Account account1) {
+        if(account1==null){
+            System.out.println("no account to delet ");
+            return;
+        }
+        loginMapByUserId.remove(account1.getUserId());
+        accountMapByAccNumber.remove(account1.getAccountNumber());
+        System.out.println("You have successfully deleted the account ");
+        System.out.println("----------------------------------------");
 
     }
 
     public void generateStatement(Account account1) {
-
+        if (!account1.getTransactionHistory().isEmpty()) {
+            System.err.println("all the treanscation ");
+            {
+                for (String str : account1.getTransactionHistory()) {
+                    System.out.println("- " + str);
+                }
+            }
+        } else {
+            System.out.println("NO TRANSCATION TILL NOW ");
+        }
+        System.out.println("----------------------------------------");
     }
 
 }
