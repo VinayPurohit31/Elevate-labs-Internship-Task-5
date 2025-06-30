@@ -53,7 +53,56 @@ public class Bank {
     }
 
     public void updateAccount(Account account1, Scanner sc) {
-        
+        System.out.println("select what you want to update");
+        System.err.println("1 Name");
+        System.err.println("2 phone no");
+        System.err.println("3 Email");
+        System.err.println("4 Address");
+        System.err.println("5 Password");
+        System.err.println("6 Exit");
+        System.out.print("Enter your choice :- ");
+        int choice = sc.nextInt();
+        sc.nextLine();
+
+        switch (choice) {
+            case 1 -> {
+                System.out.println("Enter the updated name ");
+                String name=sc.nextLine();
+                account1.setName(name);
+                System.out.println("Successfully updated");
+            }
+            case 2 -> {
+                System.out.println("Enter the updated phone no ");
+                String phone=sc.nextLine();
+                account1.setPhoneNumber(phone);
+                System.out.println("Successfully updated");
+            }
+            case 3 -> {
+                System.out.println("Enter the updated email ");
+                String email=sc.nextLine();
+                account1.setEmail(email);
+                System.out.println("Successfully updated");
+            }
+            case 4 -> {
+                System.out.println("Enter the updated address ");
+                String address=sc.nextLine();
+                account1.setAddress(address);
+                System.out.println("Successfully updated");
+            }
+            case 5 -> {
+                System.out.println("Enter the updated password ");
+                String password=sc.nextLine();
+                account1.setPassword(password);
+                System.out.println("Successfully updated");
+            }
+            case 6 -> {
+                System.out.println("Exited without changes.");
+                break;
+            }
+
+            default ->
+            System.out.println("input a valid option  ") ;
+        }
 
     }
 
@@ -98,7 +147,7 @@ public class Bank {
     }
 
     public void deleteAccount(Account account1) {
-        if(account1==null){
+        if (account1 == null) {
             System.out.println("no account to delet ");
             return;
         }
