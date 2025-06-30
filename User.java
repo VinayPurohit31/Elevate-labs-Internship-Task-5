@@ -1,9 +1,10 @@
+
 public class User {
+
     private String name;
     private String phoneNumber;
     private String email;
     private String address;
-
 
     public User(String name, String phoneNumber, String email, String address) {
         this.name = name;
@@ -12,7 +13,6 @@ public class User {
         this.address = address;
     }
 
-  
     public String getName() {
         return name;
     }
@@ -28,7 +28,6 @@ public class User {
     public String getAddress() {
         return address;
     }
-
 
     public void setName(String name) {
         this.name = name;
