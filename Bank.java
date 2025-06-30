@@ -57,29 +57,38 @@ public class Bank {
 
     public void depositMoney(Account account1, Scanner sc) {
         System.out.println("Enter how much you want to deposit");
-        double deposit=sc.nextDouble();
-        if(deposit>0 && deposit<=1000000){
-             account1.setBalance(account1.getBalance()+ deposit);
+        double deposit = sc.nextDouble();
+        if (deposit > 0 && deposit <= 1000000) {
+            account1.setBalance(account1.getBalance() + deposit);
             System.out.println("Deposit successfully ");
-        }
-        else{
+        } else {
             System.out.println("the amount should be greater then 0 and less then 1000000 ");
         }
-       
+
     }
 
     public void withdrawMoney(Account account1, Scanner sc) {
-        System.out.println("Enter the ammount you want to withdraw  ");
-        double withdraw=sc.nextDouble();
-        if(withdraw>0 && withdraw<account1.getBalance()){
-            account1.setBalance(account1.getBalance()-withdraw);
-        }else{
-            System.out.println("the amount should be greater then 0 and less then or equal to balance  ");
+        System.out.println("Enter the amount you want to withdraw: ");
+        double withdraw = sc.nextDouble();
+        sc.nextLine();
+        if (withdraw > 0 && withdraw <= account1.getBalance()) {
+            account1.setBalance(account1.getBalance() - withdraw);
+            System.out.println("Withdrawal successful! Remaining Balance: ₹" + account1.getBalance());
+        } else {
+            System.out.println("Invalid amount. It must be greater than 0 and less than or equal to your balance.");
         }
     }
 
     public void displayAccount(Account account1) {
-
+        System.out.println("----------- Account Details -----------");
+        System.out.println("Name: " + account1.getName());
+        System.out.println("Phone Number: " + account1.getPhoneNumber());
+        System.out.println("Email: " + account1.getEmail());
+        System.out.println("Address: " + account1.getAddress());
+        System.out.println("User ID: " + account1.getUserId());
+        System.out.println("Account Number: " + account1.getAccountNumber());
+        System.out.println("Account Type: " + account1.getAccountType());
+        System.out.println("Current Balance: ₹" + account1.getBalance());
     }
 
     public void deleteAccount(Account account1) {
